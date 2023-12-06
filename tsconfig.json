@@ -24,11 +24,14 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./app/*"
+      "#assets/*": [
+        "./assets/*"
       ],
-      "#/*": [
+      "#components/*": [
         "./components/*"
+      ],
+      "#entities/*": [
+        "./entities/*"
       ],
     },
     "emitDecoratorMetadata": true,

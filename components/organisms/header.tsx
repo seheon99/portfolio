@@ -1,29 +1,22 @@
 import React from "react";
 
-import Text from "#/atoms/text";
-import LinkList from "#/molecules/link-list";
-import StatsList from "#/molecules/stats-list";
+import Text from "#components/atoms/text";
+import LinkList from "#components/molecules/link-list";
+import StatsList from "#components/molecules/stats-list";
 
-const links = [
-  { name: "About Me", href: "#" },
-  { name: "Projects", href: "#" },
-  { name: "Education", href: "#" },
-];
-const stats = [
-  { name: "Projects", value: "20+" },
-  { name: "PRs", value: "250+" },
-  { name: "Commits", value: "2000+" },
-  { name: "Ambition", value: "Unlimited" },
-];
-const aboutMe = [
-  "저는 어릴 때부터 컴퓨터에 관심이 많아 자연스럽게 컴퓨터 공학을 전공하게 되었습니다.",
-  "학교에서 컴퓨터 공학을 전공하고 42 Seoul과 SW마에스트로에서 프로젝트를 진행하며 개발 실력을 쌓았습니다.",
-  "현재는 프론트엔드 개발자로서의 첫 시작을 위한 멋진 회사를 찾고 있습니다.",
-];
+interface Props {
+  id: string;
+  aboutMe: string[];
+  links: { name: string; href: string }[];
+  stats: { name: string; value: string }[];
+}
 
-export default function Header() {
+export default function Header({ id, links, stats, aboutMe }: Props) {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+    <div
+      id={id}
+      className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32"
+    >
       <div
         className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
         aria-hidden="true"
@@ -50,12 +43,14 @@ export default function Header() {
       </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <Text typograph="h2" className="text-white">
-            안녕하세요
-          </Text>
-          <Text typograph="h2" className="text-white sm:text-right">
-            유세헌입니다
-          </Text>
+          <div className="sm:flex sm:gap-x-6">
+            <Text typograph="h2" className="text-white">
+              안녕하세요
+            </Text>
+            <Text typograph="h2" className="text-white">
+              유세헌입니다
+            </Text>
+          </div>
           <Text typograph="p" className="mt-6 leading-8 text-gray-300">
             {aboutMe.join(" ")}
           </Text>

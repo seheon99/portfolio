@@ -1,0 +1,16 @@
+**/*
+
+!app/**
+!assets/**
+!components/**
+!entities/**
+!public/**
+
+!.babelrc
+!.eslintrc
+!next.config.js
+!package.json
+!postcss.config.js
+!tailwind.config.js
+!tsconfig.json
+!yarn.lock

@@ -29,7 +29,7 @@ rules:
           ["object", "type", "unknown"],
         ]
       pathGroups:
-        - pattern: "@/**"
+        - pattern: "#**"
           group: "internal"
           position: after
         - pattern: "react"

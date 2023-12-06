@@ -1,6 +1,6 @@
 import React from "react";
 
-import Stat from "#/atoms/stat";
+import Stat from "#components/atoms/stat";
 
 interface StatsListProps {
   stats: {
