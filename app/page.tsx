@@ -1,5 +1,6 @@
 import React from "react";
 
+import DrTrashImage from "#assets/images/projects/drtrash.png";
 import GiftHubImage from "#assets/images/projects/gifthub.png";
 import HomeTemplate from "#components/templates/home";
 import { Project } from "#entities/project";
@@ -32,9 +33,28 @@ const projects: Project[] = [
     description:
       "Dart/Flutter를 기반으로 상태 관리를 위한 Riverpod, 이벤트 로깅을 위한 Firebase Analytics, 다이나믹한 UX를 위한 Rive를 사용했습니다. 또한 Clean Architecture를 기반으로 Command 패턴을 사용했고 이를 통해 코드 품질을 유지하며 이벤트 로깅과 실행 취소 작업을 쉽게 구현할 수 있었습니다.",
     image: GiftHubImage,
-    startDate: new Date("2023-04-07"),
-    endDate: new Date("2023-11-25"),
-    categories: [projectCategories.mobile],
+    categories: [
+      projectCategories.mobile,
+      projectCategories.frontend,
+      projectCategories.flutter,
+      projectCategories.dart,
+      projectCategories.riverpod,
+    ],
+  },
+  {
+    id: 2,
+    title: "Dr.Trash - 올바른 분리수거를 도와주는 친환경 지구 지키미",
+    href: "#",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl ultricies nunc, vitae ultricies nisl nisl nec nisl.",
+    image: DrTrashImage,
+    categories: [
+      projectCategories.mobile,
+      projectCategories.backend,
+      projectCategories.nestjs,
+      projectCategories.nodejs,
+      projectCategories.typescript,
+    ],
   },
 ];
 

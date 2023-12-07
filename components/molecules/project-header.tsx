@@ -1,29 +1,24 @@
 import React from "react";
 
-import CategoryTag from "#components/atoms/category-tag";
-import TimeDisplay from "#components/atoms/time-display";
+import ProjectImage from "#components/atoms/project-image";
+import CategoryTags from "#components/molecules/category-tags";
 import { ProjectCategory } from "#entities/project-category";
+import { StaticImageData } from "next/image";
 
 interface ProjectHeaderProps {
-  startDate: Date;
-  endDate: Date;
+  image: StaticImageData;
   categories: ProjectCategory[];
 }
 
 export default function ProjectHeader({
-  startDate,
-  endDate,
+  image,
   categories,
 }: ProjectHeaderProps) {
   return (
-    <div className="mt-8 flex items-center gap-x-4 text-xs">
-      <span className="text-gray-500">From.</span>
-      <TimeDisplay datetime={startDate} year month />
-      <span className="text-gray-500">To.</span>
-      <TimeDisplay datetime={endDate} year month />
-      {categories.map((category, index) => (
-        <CategoryTag key={index} href={category.href} title={category.title} />
-      ))}
+    <div className="w-full">
+      <ProjectImage image={image} />
+      <div className="mt-4" />
+      <CategoryTags categories={categories} />
     </div>
   );
 }

@@ -7,7 +7,5 @@ export interface Project {
   href: string;
   description: string;
   image: StaticImageData;
-  startDate: Date;
-  endDate: Date;
   categories: ProjectCategory[];
 }

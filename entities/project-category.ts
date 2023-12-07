@@ -4,8 +4,22 @@ export interface ProjectCategory {
 }
 
 export const projectCategories: Record<string, ProjectCategory> = {
-  react: { href: "#", title: "React" },
   frontend: { href: "#", title: "Frontend" },
+  backend: { href: "#", title: "Backend" },
+
   mobile: { href: "#", title: "Mobile" },
   web: { href: "#", title: "Web" },
+
+  react: { href: "#", title: "React" },
+  flutter: { href: "#", title: "Flutter" },
+  nodejs: { href: "#", title: "Node.js" },
+
+  nextjs: { href: "#", title: "Next.js" },
+  nestjs: { href: "#", title: "Nest.js" },
+
+  riverpod: { href: "#", title: "Riverpod" },
+  docker: { href: "#", title: "Docker" },
+
+  dart: { href: "#", title: "Dart" },
+  typescript: { href: "#", title: "TypeScript" },
 };
