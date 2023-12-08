@@ -46,7 +46,7 @@ const projects: Project[] = [
     title: "Dr.Trash - 올바른 분리수거를 도와주는 친환경 지구 지키미",
     href: "#",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl ultricies nunc, vitae ultricies nisl nisl nec nisl.",
+      "Nest.js를 기반으로 RESTful API를 개발했으며, 클라이언트와 인공지능 서버가 통신할 수 있는 Kafka 서버, 클라이언트가 보낸 이미지가 저장되는 스토리지 서버를 만들어 Micro Service Architecture 형태로 운용했습니다.",
     image: DrTrashImage,
     categories: [
       projectCategories.mobile,
