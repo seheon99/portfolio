@@ -18,6 +18,7 @@ export const projectCategories: Record<string, ProjectCategory> = {
   nestjs: { href: "#", title: "Nest.js" },
 
   riverpod: { href: "#", title: "Riverpod" },
+  kafka: { href: "#", title: "Kafka" },
   docker: { href: "#", title: "Docker" },
 
   dart: { href: "#", title: "Dart" },

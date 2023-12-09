@@ -36,8 +36,8 @@ const projects: Project[] = [
     categories: [
       projectCategories.mobile,
       projectCategories.frontend,
-      projectCategories.flutter,
       projectCategories.dart,
+      projectCategories.flutter,
       projectCategories.riverpod,
     ],
   },
@@ -52,8 +52,8 @@ const projects: Project[] = [
       projectCategories.mobile,
       projectCategories.backend,
       projectCategories.nestjs,
-      projectCategories.nodejs,
       projectCategories.typescript,
+      projectCategories.kafka,
     ],
   },
 ];
