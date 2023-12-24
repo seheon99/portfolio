@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { ProjectCategory } from "#entities/project-category";
-import Link from "next/link";
+import Link from 'next/link';
+
+import { ProjectCategory } from '@/entities/project-category';
 
 interface CategoryTagProps {
   category: ProjectCategory;

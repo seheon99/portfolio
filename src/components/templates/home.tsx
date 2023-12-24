@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Header from "#components/organisms/header";
-import ProjectSections from "#components/organisms/project-sections";
-import { Project } from "#entities/project";
+import Header from '@/components/organisms/header';
+import ProjectSections from '@/components/organisms/project-sections';
+import { Project } from '@/entities/project';
 
 interface Props {
   header: {

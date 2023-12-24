@@ -1,5 +1,6 @@
-import { ProjectCategory } from "#entities/project-category";
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
+
+import { ProjectCategory } from '@/entities/project-category';
 
 export interface Project {
   id: number;

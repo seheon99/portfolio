@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import ProjectImage from "#components/atoms/project-image";
-import CategoryTags from "#components/molecules/category-tags";
+import ProjectImage from '@/components/atoms/project-image';
+import CategoryTags from '@/components/molecules/category-tags';
 
-import { Project } from "../../entities/project";
+import { Project } from '../../entities/project';
 
 interface ProjectCardProps {
   project: Project;

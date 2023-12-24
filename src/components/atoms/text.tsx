@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from "react";
+import React, { HTMLAttributes } from 'react';
 
-import { clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 const TYPOGRAPH_VARIANT = {
-  h2: "text-4xl font-bold tracking-tight sm:text-6xl ",
-  p: "text-lg",
+  h2: 'text-4xl font-bold tracking-tight sm:text-6xl ',
+  p: 'text-lg',
 };
 
 interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
@@ -13,7 +13,7 @@ interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
 }
 
 export default function Text({
-  typograph = "p",
+  typograph = 'p',
   className,
   children,
   ...props
