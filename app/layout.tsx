@@ -1,11 +1,25 @@
 import React from "react";
 
 import type { Metadata } from "next";
-import "@/globals.css";
+import "#app/globals.css";
 
 export const metadata: Metadata = {
   title: "YU SEHEON",
   description: "SEHEON's personal website",
+  icons: [
+    {
+      href: "/favicon.ico",
+      rel: "icon",
+    },
+    {
+      href: "/favicon.ico",
+      rel: "shortcut icon",
+    },
+    {
+      href: "/favicon.ico",
+      rel: "apple-touch-icon",
+    },
+  ],
 };
 
 export default function RootLayout({
