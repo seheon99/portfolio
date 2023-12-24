@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
-import CategoryTag from '@/components/atoms/category-tag';
-import { ProjectCategory } from '@/entities/project-category';
+import CategoryTag from "@/components/atoms/category-tag";
+import { ProjectCategory } from "@/entities/project-category";
 
 interface CategoryTagsProps {
   categories: ProjectCategory[];

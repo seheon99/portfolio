@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import '@/app/globals.css';
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
-  title: 'SEHEON',
-  description: 'Personal website of Seheon Yu',
+  title: "SEHEON",
+  description: "Personal website of Seheon Yu",
 };
 
 export default function RootLayout({

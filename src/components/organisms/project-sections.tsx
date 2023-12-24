@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import ProjectCard from '@/components/organisms/project-card';
-import { Project } from '@/entities/project';
+import ProjectCard from "@/components/organisms/project-card";
+import { Project } from "@/entities/project";
 
 interface Props {
   projects: Project[];

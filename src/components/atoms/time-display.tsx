@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface TimeDisplayProps {
   datetime: Date;
@@ -21,13 +21,13 @@ export default function TimeDisplay({
 }: TimeDisplayProps) {
   return (
     <time dateTime={datetime.toISOString()} className="text-gray-500">
-      {datetime.toLocaleString('ko-KR', {
-        year: year ? 'numeric' : undefined,
-        month: month ? 'long' : undefined,
-        day: day ? 'numeric' : undefined,
-        hour: hour ? 'numeric' : undefined,
-        minute: minute ? 'numeric' : undefined,
-        second: second ? 'numeric' : undefined,
+      {datetime.toLocaleString("ko-KR", {
+        year: year ? "numeric" : undefined,
+        month: month ? "long" : undefined,
+        day: day ? "numeric" : undefined,
+        hour: hour ? "numeric" : undefined,
+        minute: minute ? "numeric" : undefined,
+        second: second ? "numeric" : undefined,
       })}
     </time>
   );
