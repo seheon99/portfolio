@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/yarn,visualstudiocode,react,nextjs,macos,windows,linux
-# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,visualstudiocode,react,nextjs,macos,windows,linux
+# Created by https://www.toptal.com/developers/gitignore/api/yarn,nextjs,macos,linux,windows,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,nextjs,macos,linux,windows,visualstudiocode
 
 ### Linux ###
 *~
@@ -84,22 +84,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-### react ###
-.DS_*
-*.log
-logs
-**/*.backup.*
-**/*.back.*
-
-node_modules
-bower_components
-
-*.sublime*
-
-psd
-thumb
-sketch
-
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -162,4 +146,4 @@ $RECYCLE.BIN/
 # and uncomment the following lines
 .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/yarn,visualstudiocode,react,nextjs,macos,windows,linux
+# End of https://www.toptal.com/developers/gitignore/api/yarn,nextjs,macos,linux,windows,visualstudiocode
