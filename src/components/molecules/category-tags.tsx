@@ -3,13 +3,12 @@
 import React, { useEffect, useRef } from "react";
 
 import CategoryTag from "@/components/atoms/category-tag";
-import { ProjectCategory } from "@/entities/project-category";
 
-interface CategoryTagsProps {
-  categories: ProjectCategory[];
+interface Props {
+  categories: string[];
 }
 
-export default function CategoryTags({ categories }: CategoryTagsProps) {
+export default function CategoryTags({ categories }: Props) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
