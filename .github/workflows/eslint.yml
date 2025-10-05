@@ -11,12 +11,12 @@ name: ESLint
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "main" ]
+    branches: ["main"]
   schedule:
-    - cron: '29 10 * * 2'
+    - cron: "29 10 * * 2"
 
 jobs:
   eslint:
@@ -32,11 +32,11 @@ jobs:
 
       - name: Install ESLint
         run: |
-          yarn add eslint
-          yarn add @microsoft/eslint-formatter-sarif
+          pnpm add eslint
+          pnpm add @microsoft/eslint-formatter-sarif
 
       - name: Run ESLint
-        run: yarn run eslint .
+        run: pnpm run eslint .
           --config .eslintrc.yaml
           --ext .js,.jsx,.ts,.tsx
           --format @microsoft/eslint-formatter-sarif

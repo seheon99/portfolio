@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+import type { StaticImageData } from "next/image";
 
 import DrTrashImage from "@/assets/images/projects/drtrash.png";
 import GiftHubImage from "@/assets/images/projects/gifthub.png";
