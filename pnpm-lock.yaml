@@ -40,7 +40,7 @@ importers:
         specifier: ^9.37.0
         version: 9.37.0
       '@types/node':
-        specifier: 24.6.2
+        specifier: 24.6.2 
         version: 24.6.2
       '@types/react':
         specifier: 19.2.0
