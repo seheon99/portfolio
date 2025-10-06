@@ -33,15 +33,14 @@ jobs:
       - name: Enable pnpm
         uses: pnpm/action-setup@v3
 
-      - name: Install ESLint
+      - name: Install ESLint formatter sarif
         run: |
-          pnpm add eslint
           pnpm add @microsoft/eslint-formatter-sarif
 
       - name: Run ESLint
         run: |
-          pnpm run eslint .
-          --config .eslintrc.yaml
+          pnpm dlx eslint .
+          --config eslint.config.mjs
           --ext .js,.jsx,.ts,.tsx
           --format @microsoft/eslint-formatter-sarif
           --output-file eslint-results.sarif
