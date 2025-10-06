@@ -34,6 +34,7 @@ export default defineConfig([
           pathGroups: [
             { pattern: "react", group: "builtin", position: "after" },
             { pattern: "{next,next/*}", group: "external", position: "before" },
+            { pattern: "@/assets/**", group: "object", position: "before" },
             { pattern: "@/**", group: "internal", position: "before" },
           ],
         },
