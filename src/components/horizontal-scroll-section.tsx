@@ -3,11 +3,15 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useLayoutEffect, useRef, useState } from "react";
 
+import { twcn } from "@/utilities";
+
 interface HorizontalScrollSectionProps {
+  className?: string;
   children: React.ReactNode[];
 }
 
-export default function HorizontalScrollSection({
+export function HorizontalScrollSection({
+  className,
   children,
 }: HorizontalScrollSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -36,13 +40,20 @@ export default function HorizontalScrollSection({
   const x = useTransform(scrollYProgress, [0, 1], ["0px", `-${distance}px`]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen ">
+    <section ref={sectionRef} className="relative min-h-screen">
       <motion.div
         ref={contentRef}
         style={{ x }}
-        className="sticky top-0 flex will-change-transform"
+        className={twcn(
+          className,
+          "sticky top-0 flex items-center will-change-transform"
+        )}
       >
-        {children}
+        {children.map((child, i) => (
+          <div key={i} className="shrink-0">
+            {child}
+          </div>
+        ))}
       </motion.div>
     </section>
   );
