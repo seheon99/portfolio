@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="h-full antialiased" lang="en">
+    <html className="relative h-full antialiased" lang="ko">
       <body className="overflow-x-clip">{children}</body>
     </html>
   );
