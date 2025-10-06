@@ -1,21 +1,25 @@
-import HorizontalScrollSection from "@/components/horizontal-scroll-section";
+import { HorizontalScrollSection, ProjectDisplay } from "@/components";
+import { projects } from "@/entities/project";
 
 export default function Home() {
   return (
     <main>
-      <section className="flex h-screen items-center justify-center bg-gray-200 text-5xl font-bold">
-        Vertical Section 1
-      </section>
-
-      <HorizontalScrollSection>
-        <div className="h-screen w-100 shrink-0 bg-red-500"></div>
-        <div className="h-screen w-500 shrink-0 bg-blue-500"></div>
-        <div className="h-screen w-300 shrink-0 bg-green-500"></div>
+      <HorizontalScrollSection className="gap-50">
+        <div className="h-screen w-200 bg-red-500"></div>
+        <div className="h-screen w-500 bg-blue-500"></div>
+        {...projects.map((p) => (
+          <ProjectDisplay
+            key={p.id}
+            image={p.icon}
+            title={p.title}
+            brief={p.brief}
+            techStack={p.techStack}
+            startedAt={p.startedAt}
+            endedAt={p.endedAt}
+          />
+        ))}
+        <div className="h-screen w-300 bg-green-500"></div>
       </HorizontalScrollSection>
-
-      <section className="flex h-screen items-center justify-center bg-gray-400 text-5xl font-bold">
-        Vertical Section 2
-      </section>
     </main>
   );
 }
