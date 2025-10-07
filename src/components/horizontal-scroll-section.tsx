@@ -46,7 +46,7 @@ export function HorizontalScrollSection({
         style={{ x }}
         className={twcn(
           className,
-          "sticky top-0 flex items-center will-change-transform"
+          "sticky top-0 flex items-start will-change-transform"
         )}
       >
         {children.map((child, i) => (
