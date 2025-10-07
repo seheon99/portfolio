@@ -4,9 +4,9 @@ import { projects } from "@/entities/project";
 export default function Home() {
   return (
     <main>
-      <HorizontalScrollSection className="gap-50">
+      <HorizontalScrollSection className="gap-90">
         <div className="h-screen w-200 bg-red-500"></div>
-        <div className="h-screen w-500 bg-blue-500"></div>
+        <div className="h-screen w-screen bg-blue-500"></div>
         {...projects.map((p) => (
           <ProjectDisplay
             key={p.id}
