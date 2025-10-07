@@ -24,12 +24,15 @@ export function ProjectDisplay({
   endedAt,
 }: ProjectDisplayProps) {
   return (
-    <div className="m-10 w-100">
-      <Image
-        className="rounded-[15.625%] shadow-md"
-        src={image}
-        alt={`image of ${title.en}`}
-      />
+    <div className="mx-10 my-4 w-90">
+      <div className="relative aspect-square overflow-hidden rounded-[15.625%] shadow-md">
+        <Image
+          src={image}
+          fill
+          style={{ objectFit: "cover" }}
+          alt={`image of ${title.en}`}
+        />
+      </div>
       <div className="h-10" />
       <Text>
         {startedAt.year}. {startedAt.month}. ~ {endedAt.year}. {endedAt.month}.
