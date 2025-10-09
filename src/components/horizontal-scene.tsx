@@ -5,23 +5,20 @@ import { useLayoutEffect, useRef, useState } from "react";
 
 import { twcn } from "@/utilities";
 
-interface HorizontalScrollSectionProps {
+interface HorizontalSceneProps {
   className?: string;
   children: React.ReactNode[];
 }
 
-export function HorizontalScrollSection({
-  className,
-  children,
-}: HorizontalScrollSectionProps) {
+export function HorizontalScene({ className, children }: HorizontalSceneProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [distance, setDistance] = useState(0);
-
   const { scrollYProgress } = useScroll({
     target: sectionRef,
   });
+  const x = useTransform(scrollYProgress, [0, 1], ["0px", `-${distance}px`]);
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -36,8 +33,6 @@ export function HorizontalScrollSection({
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0px", `-${distance}px`]);
 
   return (
     <section ref={sectionRef} className="relative min-h-screen">
