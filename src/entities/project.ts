@@ -25,8 +25,6 @@ export interface Project {
   endedAt: Temporal.PlainDate;
 }
 
-export type ProjectId = (typeof projects)[number]["id"];
-
 export const projects = [
   {
     id: "minirt",
@@ -223,3 +221,5 @@ export const projects = [
     endedAt: Temporal.PlainDate.from({ year: 2024, month: 7, day: 20 }),
   },
 ] as const satisfies readonly Project[];
+
+export type ProjectId = (typeof projects)[number]["id"];
