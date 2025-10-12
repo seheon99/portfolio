@@ -6,7 +6,7 @@ export default function Home() {
     <main className="bg-stone-100">
       <HorizontalScene className="gap-90">
         <HeroSection />
-        {...projects.map((p) => (
+        {projects.map((p) => (
           <ProjectDisplay
             key={p.id}
             image={p.icon}

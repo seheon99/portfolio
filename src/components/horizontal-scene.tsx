@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, Children } from "react";
 
 import { twcn } from "@/utilities";
 
@@ -23,15 +23,20 @@ export function HorizontalScene({ className, children }: HorizontalSceneProps) {
   useLayoutEffect(() => {
     const section = sectionRef.current;
     const content = contentRef.current;
+    if (!section || !content) {
+      return;
+    }
+
     const update = () => {
-      if (section && content) {
-        section.style.height = `${content.scrollWidth}px`;
-        setDistance(content.scrollWidth - content.clientWidth);
-      }
+      section.style.height = `${content.scrollWidth}px`;
+      setDistance(content.scrollWidth - content.clientWidth);
     };
     update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+
+    const observer = new ResizeObserver(update);
+    observer.observe(content);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -44,7 +49,7 @@ export function HorizontalScene({ className, children }: HorizontalSceneProps) {
           "sticky top-0 flex items-start will-change-transform"
         )}
       >
-        {children.map((child, i) => (
+        {Children.toArray(children).map((child, i) => (
           <div key={i} className="shrink-0">
             {child}
           </div>
