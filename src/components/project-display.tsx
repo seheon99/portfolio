@@ -25,7 +25,7 @@ export function ProjectDisplay({
 }: ProjectDisplayProps) {
   return (
     <div className="mx-10 my-4 w-90">
-      <div className="relative aspect-square overflow-hidden rounded-[15.625%] shadow-md">
+      <div className="relative aspect-square overflow-hidden rounded-[15.625%] bg-white shadow-md">
         <Image
           src={image}
           fill
@@ -37,7 +37,7 @@ export function ProjectDisplay({
       <Text>
         {startedAt.year}. {startedAt.month}. ~ {endedAt.year}. {endedAt.month}.
       </Text>
-      <div className="flex items-baseline gap-2 bg-white">
+      <div className="flex items-baseline gap-2">
         <Heading>{title.ko}</Heading>
         <Subheading>{title.en}</Subheading>
       </div>

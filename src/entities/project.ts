@@ -25,7 +25,7 @@ export interface Project {
   endedAt: Temporal.PlainDate;
 }
 
-export const projects: Project[] = [
+export const projects = [
   {
     id: "minirt",
     icon: MiniRtIcon,
@@ -169,16 +169,20 @@ export const projects: Project[] = [
     title: { ko: "핏", en: "F-IT" },
     brief: {
       ko: [
-        "기프트허브는 스마트폰으로 도착한 모든 모바일 상품권을 한곳에 모아, 점점 잊혀가는 가치에 관심을 갖습니다.",
-        "모바일 상품권은 이미지 공유 한 번으로 자동 등록되고, 유효기간은 조용히 그리고 강력히 기억됩니다.",
-        "필요한 순간엔 나눔과 교환으로 흐름을 바꾸며, 소멸될 수도 있던 기회는 다시 선물로 돌아옵니다.",
-        "사용자의 습관을 방해하지 않으면서도, 일상의 작은 보관소가 더 나은 사용으로 이어지도록 유도합니다.",
+        "사람과 사람 사이의 만남은 언제나 예측할 수 없습니다.",
+        "F-IT은 우연처럼, 그러나 조심스레 그 인연을 만들어냅니다.",
+        "기획자, 개발자, 디자이너가 스스로를 조심스레 표현하면,",
+        "시스템은 그 조각들을 천천히 이어 붙여 하나의 팀을 완성합니다.",
+        "화면 속 매칭은 단순한 알고리즘이 아니라,",
+        "함께 무언가를 만들어보려는 마음의 방향을 찾아가는 과정입니다.",
       ].join(" "),
       en: [
-        "GiftHub gathers every mobile gift card on your phone, inviting a second look at value that often slips away.",
-        "With a simple icon share, cards are registered automatically, and expirations are quietly remembered.",
-        "When needed, sharing and exchange redirect the flow—what might have vanished returns as a gift.",
-        "Without interrupting your habits, this small archive of everyday life nudges each card toward better use.",
+        "Connections between people are never predictable.",
+        "F-IT gently turns that uncertainty into serendipity.",
+        "As planners, developers, and designers define themselves,",
+        "the system assembles the fragments into a single team.",
+        "Behind each match lies more than an algorithm,",
+        "it is a quit search for alignment in purpose and creation.",
       ].join(" "),
     },
     techStack: ["Flutter", "Riverpod", "Firebase", "Clean Architecture"],
@@ -216,4 +220,6 @@ export const projects: Project[] = [
     startedAt: Temporal.PlainDate.from({ year: 2023, month: 11, day: 29 }),
     endedAt: Temporal.PlainDate.from({ year: 2024, month: 7, day: 20 }),
   },
-];
+] as const satisfies readonly Project[];
+
+export type ProjectId = (typeof projects)[number]["id"];

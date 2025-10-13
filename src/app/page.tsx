@@ -1,13 +1,12 @@
-import { HorizontalScrollSection, ProjectDisplay } from "@/components";
+import { HeroSection, HorizontalScene, ProjectDisplay } from "@/components";
 import { projects } from "@/entities/project";
 
 export default function Home() {
   return (
-    <main>
-      <HorizontalScrollSection className="gap-90">
-        <div className="h-screen w-200 bg-red-500"></div>
-        <div className="h-screen w-screen bg-blue-500"></div>
-        {...projects.map((p) => (
+    <main className="bg-stone-100">
+      <HorizontalScene className="gap-90">
+        <HeroSection />
+        {projects.map((p) => (
           <ProjectDisplay
             key={p.id}
             image={p.icon}
@@ -18,8 +17,8 @@ export default function Home() {
             endedAt={p.endedAt}
           />
         ))}
-        <div className="h-screen w-300 bg-green-500"></div>
-      </HorizontalScrollSection>
+        <div className="h-screen w-300 bg-red-500"></div>
+      </HorizontalScene>
     </main>
   );
 }

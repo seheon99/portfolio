@@ -1,43 +1,43 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, Children } from "react";
 
 import { twcn } from "@/utilities";
 
-interface HorizontalScrollSectionProps {
+interface HorizontalSceneProps {
   className?: string;
   children: React.ReactNode[];
 }
 
-export function HorizontalScrollSection({
-  className,
-  children,
-}: HorizontalScrollSectionProps) {
+export function HorizontalScene({ className, children }: HorizontalSceneProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [distance, setDistance] = useState(0);
-
   const { scrollYProgress } = useScroll({
     target: sectionRef,
   });
+  const x = useTransform(scrollYProgress, [0, 1], ["0px", `-${distance}px`]);
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
     const content = contentRef.current;
+    if (!section || !content) {
+      return;
+    }
+
     const update = () => {
-      if (section && content) {
-        section.style.height = `${content.scrollWidth}px`;
-        setDistance(content.scrollWidth - content.clientWidth);
-      }
+      section.style.height = `${content.scrollWidth}px`;
+      setDistance(content.scrollWidth - content.clientWidth);
     };
     update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0px", `-${distance}px`]);
+    const observer = new ResizeObserver(update);
+    observer.observe(content);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={sectionRef} className="relative min-h-screen">
@@ -49,7 +49,7 @@ export function HorizontalScrollSection({
           "sticky top-0 flex items-start will-change-transform"
         )}
       >
-        {children.map((child, i) => (
+        {Children.toArray(children).map((child, i) => (
           <div key={i} className="shrink-0">
             {child}
           </div>
