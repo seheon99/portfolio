@@ -16,5 +16,6 @@
 # Allow application source and assets
 !src
 !src/**
+
 !public
 !public/**
