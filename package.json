@@ -1,6 +1,7 @@
 {
   "name": "seheon-blog",
   "version": "0.1.0",
+  "packageManager": "pnpm@10.18.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,14 +10,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@tailwindcss/postcss": "^4.1.14",
     "clsx": "^2.1.1",
+    "flubber": "^0.4.2",
+    "motion": "^12.23.22",
     "next": "15.5.4",
+    "postcss": "^8.5.6",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.14",
+    "temporal-polyfill": "^0.3.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.37.0",
+    "@types/flubber": "^0.4.0",
     "@types/node": "24.6.2",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
@@ -26,9 +35,9 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-tailwindcss": "4.0.0-beta.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "tailwindcss": "^4.1.14",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.45.0"
   }
