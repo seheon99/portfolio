@@ -1,4 +1,9 @@
-import { HeroSection, HorizontalScene, ProjectDisplay } from "@/components";
+import {
+  EpilogueSection,
+  HeroSection,
+  HorizontalScene,
+  ProjectDisplay,
+} from "@/components";
 import { projects } from "@/entities/project";
 
 export default function Home() {
@@ -17,7 +22,7 @@ export default function Home() {
             endedAt={p.endedAt}
           />
         ))}
-        <div className="h-screen w-300 bg-red-500"></div>
+        <EpilogueSection />
       </HorizontalScene>
     </main>
   );

@@ -1,8 +1,7 @@
 "use client";
 
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
-
 import { Heading, Text } from "./base";
+import { ArrowRightIcon } from "./icons";
 
 export function HeroSection() {
   return (
