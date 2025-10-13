@@ -1,3 +1,5 @@
+"use client";
+
 import { DataInteractive } from "@headlessui/react";
 import NextLink from "next/link";
 import { forwardRef } from "react";
