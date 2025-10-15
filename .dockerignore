@@ -1,16 +1,21 @@
-**/*
+# Ignore everything by default
+**
 
-!app/**
-!assets/**
-!components/**
-!entities/**
-!public/**
-
-!.babelrc
-!.eslintrc
-!next.config.js
+# Allow Docker build inputs
+!Dockerfile
+!.dockerignore
 !package.json
-!postcss.config.js
-!tailwind.config.js
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
+!next.config.mjs
+!postcss.config.mjs
 !tsconfig.json
-!yarn.lock
+!eslint.config.mjs
+!prettier.config.mts
+
+# Allow application source and assets
+!src
+!src/**
+
+!public
+!public/**
