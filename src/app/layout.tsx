@@ -17,10 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html className="relative h-full antialiased" lang="ko">
-      <head>
+      <body className="overflow-x-clip">
         <GoogleAnalytics />
-      </head>
-      <body className="overflow-x-clip">{children}</body>
+        {children}
+      </body>
     </html>
   );
 }
