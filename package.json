@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
-    "@tailwindcss/postcss": "^4.1.14",
+    "@tailwindcss/postcss": "^4.1.18",
     "clsx": "^2.1.1",
     "flubber": "^0.4.2",
     "motion": "^12.23.26",
