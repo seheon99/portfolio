@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
@@ -15,7 +15,7 @@
     "clsx": "^2.1.1",
     "flubber": "^0.4.2",
     "motion": "^12.23.26",
-    "next": "15.5.4",
+    "next": "16.1.1",
     "postcss": "^8.5.6",
     "react": "19.2.0",
     "react-dom": "19.2.0",
@@ -30,7 +30,7 @@
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
     "eslint": "^9.39.2",
-    "eslint-config-next": "^15.5.4",
+    "eslint-config-next": "^16.1.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.4",
