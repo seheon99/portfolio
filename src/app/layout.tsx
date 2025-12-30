@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import React from "react";
 
 import "@/app/globals.css";
+import { GoogleAnalytics } from "./google-analytics";
 
 export const metadata: Metadata = {
   title: "Seheon Yu Portfolio",
@@ -16,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html className="relative h-full antialiased" lang="ko">
-      <body className="overflow-x-clip">{children}</body>
+      <body className="overflow-x-clip">
+        <GoogleAnalytics />
+        {children}
+      </body>
     </html>
   );
 }

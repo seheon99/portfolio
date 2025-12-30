@@ -1,16 +1,12 @@
-import Image, { type StaticImageData } from "next/image";
 import { Temporal } from "temporal-polyfill";
 
-import { Heading, Subheading, Text } from "@/components/base";
-import { BilingualString } from "@/types";
+import {
+  ProjectDisplayClient,
+  type ProjectDisplayClientProps,
+  type ProjectDisplayPeriod,
+} from "./project-display.client";
 
-import { Badge } from "./base/badge";
-
-type ProjectDisplayProps = {
-  image: StaticImageData;
-  title: BilingualString;
-  brief: BilingualString;
-  techStack: string[];
+type ProjectDisplayProps = Omit<ProjectDisplayClientProps, "period"> & {
   startedAt: Temporal.PlainDate;
   endedAt: Temporal.PlainDate;
 };
@@ -24,33 +20,19 @@ export function ProjectDisplay({
   endedAt,
 }: ProjectDisplayProps) {
   return (
-    <div className="mx-10 my-4 w-90">
-      <div className="relative aspect-square overflow-hidden rounded-[15.625%] bg-white shadow-md">
-        <Image
-          src={image}
-          fill
-          style={{ objectFit: "cover" }}
-          alt={`image of ${title.en}`}
-        />
-      </div>
-      <div className="h-10" />
-      <Text>
-        {startedAt.year}. {startedAt.month}. ~ {endedAt.year}. {endedAt.month}.
-      </Text>
-      <div className="flex items-baseline gap-2">
-        <Heading>{title.ko}</Heading>
-        <Subheading>{title.en}</Subheading>
-      </div>
-      <div className="h-3" />
-      <Text>{brief.ko}</Text>
-      <div className="h-5" />
-      <Text>{brief.en}</Text>
-      <div className="h-5"></div>
-      <div className="flex flex-wrap gap-1">
-        {techStack.map((tech) => (
-          <Badge key={tech}>{tech}</Badge>
-        ))}
-      </div>
-    </div>
+    <ProjectDisplayClient
+      image={image}
+      title={title}
+      brief={brief}
+      techStack={techStack}
+      period={mapPeriod(startedAt, endedAt)}
+    />
   );
+}
+
+function mapPeriod(startedAt: Temporal.PlainDate, endedAt: Temporal.PlainDate): ProjectDisplayPeriod {
+  return {
+    start: { year: startedAt.year, month: startedAt.month },
+    end: { year: endedAt.year, month: endedAt.month },
+  };
 }
