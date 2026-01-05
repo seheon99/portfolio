@@ -86,3 +86,17 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
+
+
+      - name: Save docker image digest
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "${{ steps.build-and-push.outputs.digest }}" > docker-image-digest.txt
+
+
+      - name: Upload docker iamge digest artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v6
+        with:
+          name: docker-image-digest
+          path: docker-image-digest.txt
