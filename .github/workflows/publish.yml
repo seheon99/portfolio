@@ -23,6 +23,9 @@ jobs:
       packages: write
       id-token: write
 
+    outputs:
+      digest: ${{ steps.build-and-push.outputs.digest }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -87,16 +90,20 @@ jobs:
         # against the sigstore community Fulcio instance.
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
 
+    
+    deploy:
+      needs: build
+      if: github.event_name != 'pull_request'
+      runs-on: ubuntu-latest
 
-      - name: Save docker image digest
-        if: github.event_name != 'pull_request'
-        run: |
-          echo "${{ steps.build-and-push.outputs.digest }}" > docker-image-digest.txt
-
-
-      - name: Upload docker iamge digest artifact
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v6
+      steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          name: docker-image-digest
-          path: docker-image-digest.txt
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script: |
+            sed -i "s|^PORTFOLIO_IMAGE_DIGEST=.*|PORTFOLIO_IMAGE_DIGEST=${{ needs.build.outputs.digest }}|" .env
+            docker compose up -d --no-deps portfolio
