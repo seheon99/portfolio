@@ -23,6 +23,9 @@ jobs:
       packages: write
       id-token: write
 
+    outputs:
+      digest: ${{ steps.build-and-push.outputs.digest }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -88,15 +91,20 @@ jobs:
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
 
 
-      - name: Save docker image digest
-        if: github.event_name != 'pull_request'
-        run: |
-          echo "${{ steps.build-and-push.outputs.digest }}" > docker-image-digest.txt
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions: {}
 
-
-      - name: Upload docker iamge digest artifact
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v6
-        with:
-          name: docker-image-digest
-          path: docker-image-digest.txt
+    steps:
+    - name: Deploy over SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT || 22 }}
+        script: |
+          sed -i "s|^PORTFOLIO_IMAGE_DIGEST=.*|PORTFOLIO_IMAGE_DIGEST=${{ needs.build.outputs.digest }}|" .env
+          docker compose up -d --no-deps portfolio
