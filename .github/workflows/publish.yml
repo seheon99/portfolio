@@ -95,6 +95,7 @@ jobs:
     needs: build
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    permissions: {}
 
     steps:
     - name: Deploy over SSH
