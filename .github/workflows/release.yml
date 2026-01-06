@@ -18,8 +18,8 @@ jobs:
     steps:
       - uses: seheon99/build-and-deploy@v1
         with:
-          image-name: ghcr.io/${{ github.repository }}
           service-name: portfolio
+          registry: ghcr.io/${{ github.repository }}
           dry-run: ${{ github.event_name == 'pull_request' }}
           ssh-host: ${{ secrets.SSH_HOST }}
           ssh-user: ${{ secrets.SSH_USER }}
