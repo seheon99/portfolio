@@ -1,3 +1,5 @@
+# Visit my portfolio page: [portfolio.seheon.kr](https://portfolio.seheon.kr)
+
 ### Tech stack
 
 ![TypeScript](https://img.shields.io/badge/typescript-black?style=for-the-badge&logo=typescript)
@@ -8,7 +10,7 @@
 
 After a pull request to the `main` branch, the GitHub Action will automatically check the code quality with **ESLint** and **Prettier**.
 
-After pushing to `main`, the GitHub Action will automatically build and deploy to [GitHub Pages](https://seheon99.github.io).
+After pushing to `main`, the GitHub Action will automatically build and deploy to [portfolio.seheon.kr](https://portfolio.seheon.kr).
 
 ### Docker
 
@@ -16,13 +18,6 @@ You can containerize the application with the included Dockerfile. From the proj
 
 ```bash
 docker build -t portfolio .
-```
-
-If your environment requires a mirror for base images, you can override the
-Node image that the Dockerfile pulls:
-
-```bash
-docker build -t portfolio --build-arg NODE_IMAGE=mirror.gcr.io/library/node:22-alpine .
 ```
 
 To start the container on port 3000:
