@@ -1,4 +1,4 @@
-name: Publisher
+name: Releaser
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 
 jobs:
-  deploy:
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -20,6 +20,7 @@ jobs:
         with:
           image-name: ghcr.io/${{ github.repository }}
           service-name: portfolio
+          dry-run: ${{ github.event_name == 'pull_request' }}
           ssh-host: ${{ secrets.SSH_HOST }}
           ssh-user: ${{ secrets.SSH_USER }}
           ssh-key: ${{ secrets.SSH_KEY }}
