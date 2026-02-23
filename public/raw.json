@@ -1,0 +1,74 @@
+[
+    {
+        "id": "ft_transendence",
+        "title": "핑퐁",
+        "description": "",
+        "techStack": [
+            "TypeScript",
+            "NestJS",
+            "SocketIO",
+            "GraphQL",
+            "PostgreSQL",
+            "Docker"
+        ],
+        "startedAt": "20210920",
+        "endedAt": "20211212"
+    },
+    {
+        "id": "drtrash",
+        "title": "분리수거 박사님",
+        "description": "",
+        "techStack": [
+            "Nest.js",
+            "Kafka",
+            "Redis",
+            "PostgreSQL",
+            "Docker",
+            "Raspberry Pi"
+        ],
+        "startedAt": "20220801",
+        "endedAt": "20221101"
+    },
+    {
+        "id": "gifthub",
+        "title": "기프트허브",
+        "description": "",
+        "techStack": [
+            "Flutter",
+            "Riverpod",
+            "Firebase",
+            "Clean Architecture"
+        ],
+        "startedAt": "20230401",
+        "endedAt": "20231101"
+    },
+    {
+        "id": "fit",
+        "title": "F-IT",
+        "description": "",
+        "techStack": [
+            "TypeScript",
+            "Next.js",
+            "TailwindCSS",
+            "Zustand",
+            "SWR"
+        ],
+        "startedAt": "20230821",
+        "endedAt": "20240826"
+    },
+    {
+        "id": "timetogo",
+        "title": "언제만나",
+        "description": "",
+        "techStack": [
+            "TypeScript",
+            "Next.js",
+            "TailwindCSS",
+            "SWR",
+            "Zustand",
+            "PWA"
+        ],
+        "startedAt": "20231129",
+        "endedAt": "20240720"
+    }
+]
