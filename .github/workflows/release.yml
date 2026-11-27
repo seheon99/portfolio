@@ -9,18 +9,34 @@ on:
 
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
       id-token: write
+    outputs:
+      image: ${{ steps.build.outputs.image }}
     steps:
-      - uses: seheon99/build-and-deploy@v1
+      - uses: seheon99/build-and-deploy/build@v1.5.0
+        id: build
         with:
-          service-name: portfolio
           registry: ghcr.io/${{ github.repository }}
           dry-run: ${{ github.event_name == 'pull_request' }}
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - uses: seheon99/build-and-deploy/deploy@v1.5.0
+        with:
+          image: ${{ needs.build.outputs.image }}
+          service-name: portfolio
+          working-directory: /srv/apps/portfolio
+          compose-file: compose.yaml
+          env-file: .env
           ssh-host: ${{ secrets.SSH_HOST }}
           ssh-user: ${{ secrets.SSH_USER }}
           ssh-key: ${{ secrets.SSH_KEY }}
